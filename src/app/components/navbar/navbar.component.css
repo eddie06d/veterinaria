@@ -1,0 +1,32 @@
+a {
+  text-decoration: none;
+  color: black;
+}
+.navbar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 30px;
+}
+.navbar .title {
+  font-size: 1.4rem;
+  font-weight: 900;
+  cursor: pointer;
+}
+.group-item {
+  list-style: none;
+  display: flex;
+}
+.item {
+  font-size: 1.2rem;
+  margin-right: 45px;
+  font-weight: 400;
+}
+.item:last-child {
+  margin-right: 0;
+}
+.item:hover {
+  cursor: pointer;
+  opacity: .6;
+}

@@ -1,0 +1,9 @@
+.container-table {
+  height: 400px;
+  overflow-y: auto;
+}
+.nav-link img {
+  object-fit: cover;
+  border-radius: 50%;
+  height: 45px;
+}

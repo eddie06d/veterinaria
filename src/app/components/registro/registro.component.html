@@ -1,0 +1,65 @@
+<app-navbar></app-navbar>
+<div class="alert alert-warning d-flex align-items-center col-md-3 mx-auto justify-content-between" *ngIf="spinner">
+  <span class="me-2">User creating...</span>
+  <div class="sk-chase">
+    <div class="sk-chase-dot"></div>
+    <div class="sk-chase-dot"></div>
+    <div class="sk-chase-dot"></div>
+    <div class="sk-chase-dot"></div>
+    <div class="sk-chase-dot"></div>
+    <div class="sk-chase-dot"></div>
+  </div>
+</div>
+<div class="contenido mb-2">
+  <div class="wrapper">
+      <section class="form signup">
+          <header>
+            <span>User Registration</span>
+            <i class="fas fa-user-plus fa-2x"></i>
+          </header>
+          <form [formGroup]="form" (ngSubmit)="submit()" enctype="multipart/form-data" autocomplete="off">
+              <div class="field input">
+                <label>Username</label>
+                <input type="text" id="user" formControlName="user" placeholder="Enter your username" [ngClass]="{ 'is-valid': form.controls.user.valid, 'is-invalid': !form.controls.user.valid && (form.controls.user.touched || form.controls.user.dirty)}">
+                <div class="valid-feedback" id="user">
+                  Correct!
+                </div>
+                <div class="invalid-feedback" id="user">
+                  The field must be a minimum of 3 characters and have only uppercase, lowercase, numbers and special characters like _%$.
+                </div>
+            </div>
+              <div class="field input">
+                  <label>Email Address</label>
+                  <input type="text" id="correo" formControlName="correo" placeholder="Enter your email" [ngClass]="{ 'is-valid': form.controls.correo.valid, 'is-invalid': !form.controls.correo.valid && (form.controls.correo.touched || form.controls.correo.dirty)}">
+                  <div class="valid-feedback" id="correo">
+                    Correct!
+                  </div>
+                  <div class="invalid-feedback" id="correo">
+                    The field must have a valid email.
+                  </div>
+              </div>
+              <div class="field input">
+                  <label>Password</label>
+                  <input type="password" formControlName="password" id="pass" placeholder="Enter password" [ngClass]="{ 'is-valid': form.controls.password.valid, 'is-invalid': !form.controls.password.valid && (form.controls.password.touched || form.controls.password.dirty)}">
+                  <div class="valid-feedback" id="pass">
+                    Correct!
+                  </div>
+                  <div class="invalid-feedback" id="pass">
+                    The field must have a minimun of 8 characters.
+                  </div>
+                  <!-- <i class="fas fa-eye" (click)="hideShowPassword()" *ngIf="visorPassword"></i>
+                  <i class="fas fa-eye-slash" (click)="hideShowPassword()" *ngIf="!visorPassword"></i> -->
+              </div>
+              <div class="field image">
+                  <label>Select image</label>
+                  <input type="file" (change)="handleImage($event)">
+              </div>
+              <div class="field button">
+                  <input type="submit" value="Register now" [disabled]="!form.valid">
+              </div>
+          </form>
+          <div class="link">Already signed up? <a [routerLink]="['/login']">Login now</a></div>
+      </section>
+  </div>
+</div>
+<app-footer></app-footer>

@@ -1,0 +1,91 @@
+<app-navbar></app-navbar>
+
+<div class="row d-flex justify-content-center">
+  <div class="col-md-3 card text-center text-light bg-success">
+    <div class="card-body">
+      <h3>Number of Dogs</h3>
+      <h4 class="display-4">
+        <i class="fas fa-dog me-3"></i>{{ perros?.length }}
+      </h4>
+    </div>
+  </div>
+  <div class="col-md-3 card text-center text-light bg-secondary mx-3">
+    <div class="card-body">
+      <h3>Number of Users</h3>
+      <h4 class="display-4">
+        <i class="fas fa-users me-3"></i>{{ userData?.ctdUsers }}
+      </h4>
+    </div>
+  </div>
+  <div class="col-md-3 card text-center text-light bg-danger">
+    <div class="card-body">
+      <h3>Number of Admins</h3>
+      <h4 class="display-4">
+        <i class="fas fa-users-cog me-3"></i>{{ userData?.ctdAdmins }}
+      </h4>
+    </div>
+  </div>
+</div>
+
+<div class="row mt-5 mx-1">
+  <div class="col-md-6">
+    <h3 class="text-center">
+      <span class="badge bg-dark">Pie Chart of dogs by raze</span>
+    </h3>
+    <ngx-charts-advanced-pie-chart
+      [view]="view"
+      scheme="neons"
+      [results]="singleRaze"
+      [gradient]="gradientP"
+      (select)="onSelect($event)"
+      (activate)="onActivate($event)"
+      (deactivate)="onDeactivate($event)">
+    </ngx-charts-advanced-pie-chart>
+  </div>
+  <div class="col-md-6">
+    <h3 class="text-center">
+      <span class="badge bg-dark">Horizontal Bar Chart of dogs by age stages</span>
+    </h3>
+    <ngx-charts-bar-horizontal
+      [view]="view"
+      [scheme]="colorSchemeH"
+      [results]="singleAge"
+      [gradient]="gradientH"
+      [xAxis]="showXAxis"
+      [yAxis]="showYAxis"
+      [legend]="showLegendH"
+      [showXAxisLabel]="showXAxisLabel"
+      [showYAxisLabel]="showYAxisLabel"
+      [xAxisLabel]="xAxisLabel"
+      [yAxisLabel]="yAxisLabel"
+      (select)="onSelect($event)"
+      (activate)="onActivate($event)"
+      (deactivate)="onDeactivate($event)">
+    </ngx-charts-bar-horizontal>
+  </div>
+</div>
+<div class="row mt-5 mb-5">
+  <div class="col-md-6 mx-auto">
+    <h3 class="text-center">
+      <span class="badge bg-dark">Vertical Group Bar Chart of dogs by raze and stage age</span>
+    </h3>
+    <ngx-charts-bar-vertical-2d
+      [view]="viewMH"
+      scheme="neons"
+      [results]="multi"
+      [gradient]="gradientMH"
+      [xAxis]="showXAxisMH"
+      [yAxis]="showYAxisMH"
+      [legend]="showLegendMH"
+      [showXAxisLabel]="showXAxisLabelMH"
+      [showYAxisLabel]="showYAxisLabelMH"
+      [xAxisLabel]="xAxisLabelMH"
+      [yAxisLabel]="yAxisLabelMH"
+      [legendTitle]="legendTitle"
+      (select)="onSelect($event)"
+      (activate)="onActivate($event)"
+      (deactivate)="onDeactivate($event)">
+    </ngx-charts-bar-vertical-2d>
+  </div>
+</div>
+<app-footer></app-footer>
