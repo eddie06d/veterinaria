@@ -53,7 +53,8 @@ export class InterfazAdminComponent implements OnInit {
   }
 
   updateUser(userUpdate): void {
-    const user = UserFunctions.findPetById(this.usuarios, userUpdate.id);
+    const user = UserFunctions.findUserById(this.usuarios, userUpdate.id);
+    user.password = CryptoJS.AES.decrypt(user.password, user.correo).toString(CryptoJS.enc.Utf8);
     this.user = { ...user };
     this.form.patchValue({ ...user });
   }
@@ -128,7 +129,7 @@ export class InterfazAdminComponent implements OnInit {
   }
 
   showPhoto(id): void {
-    const user = UserFunctions.findPetById(this.usuarios, id);
+    const user = UserFunctions.findUserById(this.usuarios, id);
     this.user = { ...user };
   }
 
